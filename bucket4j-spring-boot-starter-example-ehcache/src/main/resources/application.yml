@@ -10,7 +10,8 @@ bucket4j:
     enabled: true
     configs:
     - cache-name: buckets
-      filter-type: expression
+      filter-key-type: expression
+      skip-condition:  "@securityService.username() == 'admin'"
       expression: "@securityService.username()?: getRemoteAddr()"
       url: /*
       filter-order: 0
@@ -18,5 +19,4 @@ bucket4j:
       -
         capacity: 20
         time: 1
-        unit: minutes               
-          
+        unit: minutes

@@ -12,9 +12,10 @@ bucket4j:
     enabled: true
     configs:
     - cache-name: buckets
-      filter-type: default
-      url: /*
-      filter-order: 0
+      filter-method: zuul
+      filter-key-type: default
+      url: /
+      filter-order: -10000
       bandwidths: 
       -
         capacity: 20
