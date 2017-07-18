@@ -8,19 +8,19 @@ spring:
     jcache:
       config: classpath:ehcache.xml
 bucket4j:
-  rate-limit:
-    enabled: true
-    configs:
-    - cache-name: buckets
-      filter-method: zuul
-      filter-key-type: default
-      url: /
-      filter-order: -10000
-      bandwidths: 
-      -
-        capacity: 20
+  enabled: true
+  filters:
+  - cache-name: buckets
+    filter-method: zuul
+    url: /myservice
+    filter-order: -10000
+    rate-limits:
+    - filter-key-type: ip
+      expression: "@securityService.username()?: getRemoteAddr()"
+      bandwidths:
+      - capacity: 10
         time: 1
-        unit: minutes               
+        unit: minutes
 zuul:
   routes:
     myservice:

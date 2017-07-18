@@ -6,17 +6,23 @@ spring:
     jcache:
       config: classpath:ehcache.xml
 bucket4j:
-  rate-limit:
-    enabled: true
-    configs:
-    - cache-name: buckets
-      filter-key-type: expression
+  enabled: true
+  filters:
+  - cache-name: buckets   
+    filter-method: servlet 
+    url: /*
+    rate-limits:
+    - filter-key-type: expression
       skip-condition:  "@securityService.username() == 'admin'"
       expression: "@securityService.username()?: getRemoteAddr()"
-      url: /*
-      filter-order: 0
-      bandwidths: 
-      -
-        capacity: 20
+      bandwidths:
+      - capacity: 1
         time: 1
-        unit: minutes
+        unit: seconds
+    - filter-key-type: expression
+      skip-condition: "@securityService.username() != 'admin'"
+      expression: "@securityService.username()?: getRemoteAddr()"
+      bandwidths:
+      - capacity: 1
+        time: 10
+        unit: seconds
