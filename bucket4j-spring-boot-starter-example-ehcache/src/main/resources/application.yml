@@ -13,16 +13,16 @@ bucket4j:
     url: /*
     rate-limits:
     - filter-key-type: expression
-      skip-condition:  "@securityService.username() == 'admin'"
+      execute-condition:  "@securityService.username() == 'admin'"
       expression: "@securityService.username()?: getRemoteAddr()"
       bandwidths:
-      - capacity: 1
+      - capacity: 10
         time: 1
-        unit: seconds
+        unit: minutes
     - filter-key-type: expression
-      skip-condition: "@securityService.username() != 'admin'"
+      execute-condition: "@securityService.username() != 'admin'"
       expression: "@securityService.username()?: getRemoteAddr()"
       bandwidths:
-      - capacity: 1
+      - capacity: 15
         time: 10
-        unit: seconds
+        unit: minutes
