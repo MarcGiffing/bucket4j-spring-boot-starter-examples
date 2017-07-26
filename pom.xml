@@ -21,6 +21,7 @@
 		<module>bucket4j-spring-boot-starter-example-ehcache</module>
 		<module>bucket4j-spring-boot-starter-example-zuul</module>
 		<module>bucket4j-spring-boot-starter-example-hazelcast</module>
+		<module>bucket4j-spring-boot-starter-example-caffeine</module>
 	</modules>
 
 	<properties>
@@ -34,7 +35,7 @@
 			<dependency>
 				<groupId>com.giffing.bucket4j.spring.boot.starter</groupId>
 				<artifactId>bucket4j-spring-boot-starter</artifactId>
-				<version>0.0.8</version>
+				<version>0.0.9-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.vladimir-bukhtoyarov</groupId>

@@ -1,0 +1,19 @@
+management:
+  security:
+    enabled: false
+spring:
+  cache:
+    cache-names:
+    - buckets
+    caffeine:
+      spec: maximumSize=1000000,expireAfterAccess=3600s
+bucket4j:
+  enabled: true
+  filters:
+  - cache-name: buckets
+    url: /*
+    rate-limits:
+    - bandwidths:
+      - capacity: 5
+        time: 10
+        unit: seconds
