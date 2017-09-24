@@ -35,17 +35,17 @@
 			<dependency>
 				<groupId>com.giffing.bucket4j.spring.boot.starter</groupId>
 				<artifactId>bucket4j-spring-boot-starter</artifactId>
-				<version>0.0.8</version>
+				<version>0.0.12</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.vladimir-bukhtoyarov</groupId>
 				<artifactId>bucket4j-core</artifactId>
-				<version>2.1.0</version>
+				<version>3.0.2</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.vladimir-bukhtoyarov</groupId>
 				<artifactId>bucket4j-jcache</artifactId>
-				<version>2.1.0</version>
+				<version>3.0.2</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
