@@ -1,6 +1,8 @@
 management:
-  security:
-    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 spring:
   cache:
     cache-names:
