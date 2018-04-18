@@ -8,6 +8,10 @@
 	</parent>
 	<artifactId>bucket4j-spring-boot-starter-example-zuul</artifactId>
 
+	<properties>
+		<spring-cloud.version>Finchley.SR7</spring-cloud.version>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>com.giffing.bucket4j.spring.boot.starter</groupId>
@@ -27,8 +31,8 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-zuul</artifactId>
-			<version>1.3.1.RELEASE</version>
+			<artifactId>spring-cloud-netflix-core</artifactId>
+			<version>1.4.4.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.ehcache</groupId>

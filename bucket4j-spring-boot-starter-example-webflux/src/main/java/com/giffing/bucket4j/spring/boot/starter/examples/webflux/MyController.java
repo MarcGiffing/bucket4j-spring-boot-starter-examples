@@ -1,0 +1,23 @@
+package com.giffing.bucket4j.spring.boot.starter.examples.webflux;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import reactor.core.publisher.Mono;
+
+@RestController
+@RequestMapping
+public class MyController {
+
+	@GetMapping
+    public Mono<String> getGreeting(
+        @RequestParam(defaultValue = "World") String name) {
+        return Mono.just("Hello")
+            .flatMap(s -> Mono
+                .just(s + ", " + name + "!\n")
+            );
+    }
+	
+}

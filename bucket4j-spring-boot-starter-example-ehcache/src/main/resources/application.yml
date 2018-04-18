@@ -1,4 +1,8 @@
 management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
   security:
     enabled: false
 spring:
