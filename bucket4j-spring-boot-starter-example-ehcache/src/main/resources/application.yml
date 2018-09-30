@@ -3,8 +3,8 @@ management:
     web:
       exposure:
         include: "*"
-  security:
-    enabled: false
+  prometheus:
+    enabled: true
 spring:
   cache:
     jcache:
@@ -13,20 +13,24 @@ bucket4j:
   enabled: true
   filters:
   - cache-name: buckets   
-    filter-method: servlet 
+    filter-method: servlet
+    filter-order: 1
     url: /*
+    metric-tags-strategy-keys:
+    - USERNAME
+    - URL
     rate-limits:
     - filter-key-type: expression
       execute-condition:  "@securityService.username() == 'admin'"
       expression: "@securityService.username()?: getRemoteAddr()"
       bandwidths:
-      - capacity: 10
+      - capacity: 30
         time: 1
         unit: minutes
     - filter-key-type: expression
       execute-condition: "@securityService.username() != 'admin'"
       expression: "@securityService.username()?: getRemoteAddr()"
       bandwidths:
-      - capacity: 15
+      - capacity: 30
         time: 10
         unit: minutes

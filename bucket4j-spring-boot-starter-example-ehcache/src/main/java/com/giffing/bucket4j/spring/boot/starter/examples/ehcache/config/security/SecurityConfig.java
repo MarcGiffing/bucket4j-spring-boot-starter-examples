@@ -15,12 +15,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/unsecure").permitAll();
 		http.authorizeRequests().antMatchers("/login").permitAll();
-		http.authorizeRequests().antMatchers("/secure").hasAnyRole("ADMIN","USER");
+		http.authorizeRequests().antMatchers("/secure").hasAnyRole("ADMIN", "USER");
 	}
-	
+
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		  auth.inMemoryAuthentication().withUser("admin").password("123").roles("ADMIN");
+		auth.inMemoryAuthentication().withUser("admin").password("123").roles("ADMIN");
 	}
-	
+
 }
