@@ -16,9 +16,13 @@ bucket4j:
     filter-method: servlet
     filter-order: 1
     url: /*
-    metric-tags-strategy-keys:
-    - USERNAME
-    - URL
+    metricTags:
+    - key: IP
+      expression: getRemoteAddr()
+    - key: USERNAME
+      expression: "@securityService.username() != null ? @securityService.username() : 'anonym'"
+    - key: URL
+      expression: request.getRequestURI()  
     rate-limits:
     - filter-key-type: expression
       execute-condition:  "@securityService.username() == 'admin'"

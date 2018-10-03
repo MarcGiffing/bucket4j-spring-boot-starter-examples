@@ -36,7 +36,7 @@
 			<dependency>
 				<groupId>com.giffing.bucket4j.spring.boot.starter</groupId>
 				<artifactId>bucket4j-spring-boot-starter</artifactId>
-				<version>0.1.5</version>
+				<version>0.1.7-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.vladimir-bukhtoyarov</groupId>
