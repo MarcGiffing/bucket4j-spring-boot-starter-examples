@@ -22,7 +22,7 @@ bucket4j:
     - key: USERNAME
       expression: "@securityService.username() != null ? @securityService.username() : 'anonym'"
     - key: URL
-      expression: request.getRequestURI()  
+      expression: getRequestURI()
     rate-limits:
     - filter-key-type: expression
       execute-condition:  "@securityService.username() == 'admin'"
@@ -31,10 +31,14 @@ bucket4j:
       - capacity: 30
         time: 1
         unit: minutes
+        fixed-refill-interval: 1
+        fixed-refill-interval-unit: minutes
     - filter-key-type: expression
       execute-condition: "@securityService.username() != 'admin'"
       expression: "@securityService.username()?: getRemoteAddr()"
       bandwidths:
-      - capacity: 30
-        time: 10
+      - capacity: 5
+        time: 1
         unit: minutes
+        fixed-refill-interval: 1
+        fixed-refill-interval-unit: minutes

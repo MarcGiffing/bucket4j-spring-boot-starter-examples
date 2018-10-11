@@ -11,7 +11,7 @@ import reactor.core.publisher.Mono;
 @RequestMapping
 public class MyController {
 
-	@GetMapping
+	@GetMapping("/hello")
     public Mono<String> getGreeting(
         @RequestParam(defaultValue = "World") String name) {
         return Mono.just("Hello")
