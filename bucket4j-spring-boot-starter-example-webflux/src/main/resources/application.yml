@@ -6,9 +6,12 @@ management:
 bucket4j:
   enabled: true
   filters:
+  - metrics:      types:      - consumed-counter
+      - rejected-counter
   - cache-name: buckets
     filter-method: webflux
-    url: /[.]*
+    url: .*
+    filter-order: 1
     rate-limits:
     - bandwidths:
       - capacity: 5
