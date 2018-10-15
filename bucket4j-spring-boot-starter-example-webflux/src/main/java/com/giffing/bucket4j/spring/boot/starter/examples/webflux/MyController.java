@@ -12,7 +12,16 @@ import reactor.core.publisher.Mono;
 public class MyController {
 
 	@GetMapping("/hello")
-    public Mono<String> getGreeting(
+    public Mono<String> hello(
+        @RequestParam(defaultValue = "World") String name) {
+        return Mono.just("Hello")
+            .flatMap(s -> Mono
+                .just(s + ", " + name + "!\n")
+            );
+    }
+	
+	@GetMapping("/world")
+    public Mono<String> world(
         @RequestParam(defaultValue = "World") String name) {
         return Mono.just("Hello")
             .flatMap(s -> Mono

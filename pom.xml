@@ -23,6 +23,7 @@
 		<module>bucket4j-spring-boot-starter-example-hazelcast</module>
 		<module>bucket4j-spring-boot-starter-example-caffeine</module>
 		<module>bucket4j-spring-boot-starter-example-webflux</module>
+		<module>bucket4j-spring-boot-starter-example-infinispan</module>
 	</modules>
 
 	<properties>
@@ -36,7 +37,7 @@
 			<dependency>
 				<groupId>com.giffing.bucket4j.spring.boot.starter</groupId>
 				<artifactId>bucket4j-spring-boot-starter</artifactId>
-				<version>0.1.15</version>
+				<version>0.1.16-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.vladimir-bukhtoyarov</groupId>
