@@ -2,6 +2,7 @@ management:
   security:
     enabled: false
 spring:
+  main:    allow-bean-definition-overriding: true
   cache:
     jcache:
       config: classpath:hazelcast.xml
@@ -9,7 +10,7 @@ bucket4j:
   enabled: true
   filters:
   - cache-name: buckets
-    url: /*
+    url: .*
     rate-limits:
     - bandwidths:
       - capacity: 5
