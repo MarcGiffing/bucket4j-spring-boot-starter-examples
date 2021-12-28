@@ -4,7 +4,7 @@
 
 	<groupId>com.giffing.bucket4j.spring.boot.starter</groupId>
 	<artifactId>bucket4j-spring-boot-starter-examples</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>${revision}</version>
 	<packaging>pom</packaging>
 
 	<name>bucket4j-spring-boot-starter-examples</name>
@@ -13,7 +13,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.3.7.RELEASE</version>
+		<version>2.6.2</version>
 		<relativePath />
 	</parent>
 
@@ -23,9 +23,11 @@
 		<module>bucket4j-spring-boot-starter-example-hazelcast</module>
 		<module>bucket4j-spring-boot-starter-example-caffeine</module>
 		<module>bucket4j-spring-boot-starter-example-webflux</module>
+		<module>bucket4j-spring-boot-starter-example-gateway</module>
 	</modules>
 
 	<properties>
+		<revision>0.0.1-SNAPSHOT</revision>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
@@ -36,18 +38,24 @@
 			<dependency>
 				<groupId>com.giffing.bucket4j.spring.boot.starter</groupId>
 				<artifactId>bucket4j-spring-boot-starter</artifactId>
-				<version>0.2.0</version>
+				<version>0.5.2</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.vladimir-bukhtoyarov</groupId>
 				<artifactId>bucket4j-core</artifactId>
-				<version>4.10.0</version>
+				<version>7.0.0</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.vladimir-bukhtoyarov</groupId>
 				<artifactId>bucket4j-jcache</artifactId>
-				<version>4.10.0</version>
+				<version>7.0.0</version>
 			</dependency>
+			<dependency>
+				<groupId>com.github.vladimir-bukhtoyarov</groupId>
+				<artifactId>bucket4j-hazelcast</artifactId>
+				<version>7.0.0</version>
+			</dependency>
+			
 		</dependencies>
 	</dependencyManagement>
 

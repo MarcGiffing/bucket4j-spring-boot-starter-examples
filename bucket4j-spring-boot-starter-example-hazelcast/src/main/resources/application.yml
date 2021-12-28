@@ -4,7 +4,9 @@ management:
 spring:
   main:    allow-bean-definition-overriding: true
   cache:
+    type: jcache
     jcache:
+      provider: com.hazelcast.cache.impl.HazelcastServerCachingProvider
       config: classpath:hazelcast.xml
 bucket4j:
   enabled: true

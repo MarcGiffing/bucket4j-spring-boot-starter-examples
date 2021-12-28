@@ -1,24 +1,20 @@
 package com.giffing.bucket4j.spring.boot.starter.examples.webflux;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
-
 import java.util.Collections;
 import java.util.stream.IntStream;
 
-import org.assertj.core.api.Assertions;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 @SpringBootTest
 @ActiveProfiles("webflux") // Like this
 public class WebfluxRateLimitTest {
@@ -28,7 +24,7 @@ public class WebfluxRateLimitTest {
 
     WebTestClient rest;
 
-    @Before
+    @BeforeEach
     public void setup() {
         this.rest = WebTestClient
             .bindToApplicationContext(this.context)

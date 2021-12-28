@@ -1,0 +1,21 @@
+spring:  cache:    type: jcache    jcache:      provider: com.hazelcast.cache.impl.HazelcastServerCachingProvider      config: classpath:hazelcast.xml
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+bucket4j:
+  filters:
+  - metrics:
+      types:
+      - consumed-counter
+      - rejected-counter
+  - cache-name: buckets
+    filter-method: gateway
+    url: .*
+    filter-order: -100000
+    rate-limits:
+    - bandwidths:
+      - capacity: 5
+        time: 10
+        unit: seconds        fixed-refill-interval: 1        fixed-refill-interval-unit: minutes

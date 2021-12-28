@@ -7,6 +7,8 @@ management:
     enabled: false
 spring:
   cache:
+    jcache:
+      provider: org.ehcache.jsr107.EhcacheCachingProvider
     cache-names:
     - buckets
     caffeine:
@@ -16,6 +18,7 @@ bucket4j:
   filters:
   - cache-name: buckets
     url: .*
+    hide-http-response-headers: true
     rate-limits:
     - bandwidths:
       - capacity: 5

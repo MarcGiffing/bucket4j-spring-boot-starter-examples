@@ -38,15 +38,13 @@ bucket4j:
         - key: URL
           expression: getRequestURI()
     rate-limits:
-    - filter-key-type: expression
-      execute-condition:  "@securityService.username() == 'admin'"
+    - execute-condition:  "@securityService.username() == 'admin'"
       expression: "@securityService.username()?: getRemoteAddr()"
       bandwidths:
       - capacity: 30
         time: 1
         unit: minutes
-    - filter-key-type: expression
-      execute-condition: "@securityService.username() != 'admin'"
+    - execute-condition: "@securityService.username() != 'admin'"
       expression: "@securityService.username()?: getRemoteAddr()"
       bandwidths:
       - capacity: 5
